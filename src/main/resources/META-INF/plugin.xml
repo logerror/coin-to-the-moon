@@ -1,0 +1,26 @@
+<idea-plugin>
+    <id>net.welights.jetbrainsplugin.cttm</id>
+    <name>Coin to the moon</name>
+    <vendor email="freedom521fd@163.com" url="http://welights.net">welights</vendor>
+    <idea-version since-build="173.*"/>
+
+    <description>这是一个实时获取加密货币价格的软件，我们将会添加更多的功能来完善它，如有疑问可直接在github上反馈</description>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <applicationService
+                serviceImplementation="net.welights.jetbrainsplugin.cttm.view.AppSettingState"/>
+        <toolWindow icon="/icon_mns.png" id="Coin to the moon" anchor="right"
+                    factoryClass="net.welights.jetbrainsplugin.cttm.view.CoinPriceView"/>
+        <applicationConfigurable id="cttm_setting"
+                                 instance="net.welights.jetbrainsplugin.cttm.view.SettingView"
+                                 displayName="Coin To The Moon"/>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
+</idea-plugin>
