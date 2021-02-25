@@ -1,10 +1,15 @@
 <idea-plugin>
     <id>net.welights.jetbrainsplugin.cttm</id>
     <name>Coin to the moon</name>
-    <vendor email="freedom521fd@163.com" url="http://welights.net">welights</vendor>
+    <vendor email="freedom521fd@gmail.com" url="https://github.com/logerror/coin-to-the-moon">
+        welights
+    </vendor>
     <idea-version since-build="173.*"/>
 
-    <description>这是一个实时获取加密货币价格的软件，我们将会添加更多的功能来完善它，如有疑问可直接在github上反馈</description>
+    <description><![CDATA[
+    This is a software to get the price of cryptocurrency in real time. We will add more functions to improve it. If you have any questions, you can directly feedback on github.<br>
+    这是一个实时获取加密货币价格的软件，我们将会添加更多的功能来完善它，如有疑问可直接在github上反馈.<br>
+    ]]></description>
 
     <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
