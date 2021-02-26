@@ -11,6 +11,10 @@
     这是一个实时获取加密货币价格的软件，我们将会添加更多的功能来完善它，如有疑问可直接在github上反馈.<br>
     ]]></description>
 
+    <change-notes><![CDATA[
+      v1.0.0 support real time price 支持虚拟货币价格的实时查询.<br>
+    ]]></change-notes>
+
     <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
     <depends>com.intellij.modules.platform</depends>

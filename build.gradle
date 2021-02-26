@@ -30,6 +30,6 @@ intellij {
 
 patchPluginXml {
     changeNotes """
-      Add change notes here.<br>
-      <em>most HTML tags may be used</em>"""
+    v1.0.0 support real time price 支持虚拟货币价格的实时查询.<br>
+    """
 }
