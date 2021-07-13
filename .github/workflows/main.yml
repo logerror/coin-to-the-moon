@@ -22,14 +22,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          docker pull codingcorp-docker.pkg.coding.net/cheer/nocalhost/dev-container:eb8a6a32d928e9b97c5765336c38ab46dd442d57
+          docker pull codingcorp-docker.pkg.coding.net/coding-artifacts/public/artifacts-scanner:a0c57e454a391af6828f8bddf286d27f5118d105
