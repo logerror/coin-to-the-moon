@@ -16,8 +16,8 @@ import javax.swing.*;
 /**
  * @author will
  */
-public class FxhCoinPriceHandler extends AbstractCoinPriceHandler {
-    public FxhCoinPriceHandler(JTable table, JLabel label) {
+public class CoinPriceHandler extends AbstractCoinPriceHandler {
+    public CoinPriceHandler(JTable table, JLabel label) {
         super(table, label);
     }
 
@@ -50,16 +50,16 @@ public class FxhCoinPriceHandler extends AbstractCoinPriceHandler {
 
     //todo: 根据币种筛选
     private void parse(List<String> symbols, String entity) {
-        new JsonParser().parse(entity).getAsJsonArray().forEach(element -> {
+        new JsonParser().parse(entity).getAsJsonObject().getAsJsonArray("data").forEach(element -> {
             CryptoCurrency coinInfo = new CryptoCurrency();
             JsonObject coinObj = element.getAsJsonObject();
             coinInfo.setSymbol(coinObj.get("symbol").getAsString());
             coinInfo.setName(coinObj.get("name").getAsString());
-            coinInfo.setLatestPriceUs(coinObj.get("price_usd").getAsDouble());
-            coinInfo.setLatestPriceCny(coinObj.get("price_cny").getAsDouble());
-            coinInfo.setChangeRatio1Hour(coinObj.get("percent_change_1h").getAsDouble());
-            coinInfo.setChangeRatio24Hour(coinObj.get("percent_change_24h").getAsDouble());
-            coinInfo.setChangeRatio7Day(coinObj.get("percent_change_7d").getAsDouble());
+            coinInfo.setLatestPriceUs(coinObj.get("priceUsd").getAsDouble());
+            coinInfo.setLatestPriceCny(0.01);
+//            coinInfo.setChangeRatio1Hour(coinObj.get("percent_change_1h").getAsDouble());
+            coinInfo.setChangeRatio24Hour(coinObj.get("changePercent24Hr").getAsDouble());
+//            coinInfo.setChangeRatio7Day(coinObj.get("percent_change_7d").getAsDouble());
             updateCoinInfo(coinInfo);
         });
     }

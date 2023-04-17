@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'net.welights.jetbrainsplugin'
-version '1.0.0'
+version '1.1.1'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -17,11 +17,6 @@ repositories {
     jcenter()
 }
 
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile 'com.google.code.gson:gson:2.8.5'
-}
-
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
     version '2020.2.3'
@@ -31,5 +26,6 @@ intellij {
 patchPluginXml {
     changeNotes """
     v1.0.0 support real time price 支持虚拟货币价格的实时查询.<br>
+    v1.1.0 update query api 更新查询api.<br>
     """
 }

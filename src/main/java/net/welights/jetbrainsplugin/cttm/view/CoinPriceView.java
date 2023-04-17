@@ -8,7 +8,7 @@ import com.intellij.ui.content.ContentFactory;
 
 import net.welights.jetbrainsplugin.cttm.constants.CoinConstants;
 import net.welights.jetbrainsplugin.cttm.handler.AbstractCoinPriceHandler;
-import net.welights.jetbrainsplugin.cttm.handler.FxhCoinPriceHandler;
+import net.welights.jetbrainsplugin.cttm.handler.CoinPriceHandler;
 import net.welights.jetbrainsplugin.cttm.util.PluginLogUtil;
 
 import org.jetbrains.annotations.NotNull;
@@ -52,7 +52,7 @@ public class CoinPriceView implements ToolWindowFactory {
 
     @Override
     public void init(@NotNull ToolWindow toolWindow) {
-        handler = new FxhCoinPriceHandler(coin_table, coin_timestamp);
+        handler = new CoinPriceHandler(coin_table, coin_timestamp);
         handler.load(parse(), AppSettingState.getInstance().getRank());
     }
 

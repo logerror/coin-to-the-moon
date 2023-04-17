@@ -16,15 +16,12 @@ public abstract class AbstractCoinPriceHandler extends AbstractHandler {
 
     protected final List<CryptoCurrency> coins = new ArrayList<>();
 
-    protected final int[] coinTabWidths = {0, 0, 0, 0, 0, 0, 0,};
+    protected final int[] coinTabWidths = {0, 0, 0, 0,};
     protected final String[] coinColumnNames = {
             CoinConstants.COIN_NAME,
             CoinConstants.SYMBOL,
-            CoinConstants.COIN_LATEST_PRICE_CNY,
             CoinConstants.COIN_LATEST_PRICE_USD,
-            CoinConstants.RISE_AND_FALL_RATIO_1Hour,
             CoinConstants.RISE_AND_FALL_RATIO_24Hour,
-            CoinConstants.RISE_AND_FALL_RATIO_7Day
     };
 
     AbstractCoinPriceHandler(JTable table, JLabel label) {
@@ -59,11 +56,8 @@ public abstract class AbstractCoinPriceHandler extends AbstractHandler {
             data[i] = new Object[]{
                     coin.getName(),
                     coin.getSymbol(),
-                    coin.getLatestPriceCny(),
                     coin.getLatestPriceUs(),
-                    coin.getChangeRatio1HourString(),
                     coin.getChangeRatio24HourString(),
-                    coin.getChangeRatio7DayString()
             };
         }
         return data;

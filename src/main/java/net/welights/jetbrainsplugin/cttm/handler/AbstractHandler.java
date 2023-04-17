@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 public abstract class AbstractHandler {
     protected final JTable jTable;
     private final JLabel jLabel;
-    private final int[] numColumnIdx = {4, 5, 6};
+    private final int[] numColumnIdx = {3};
     ScheduledExecutorService scheduledExecutorService = new ScheduledThreadPoolExecutor(1);
 
     public AbstractHandler(JTable table, JLabel label) {
