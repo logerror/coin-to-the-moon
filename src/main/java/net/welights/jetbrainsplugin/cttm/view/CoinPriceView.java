@@ -37,7 +37,7 @@ public class CoinPriceView implements ToolWindowFactory {
 
         //add content, and button listener
         toolWindow.getContentManager().addContent(coinContent);
-        coin_refresh.addActionListener(e -> handler.load(parse(), AppSettingState.getInstance().getRank()));
+        coin_refresh.addActionListener(e -> handler.load(parse(), AppSettingState.getInstance().getRank(), AppSettingState.getInstance().getCoinList()));
     }
 
     public List<String> parse() {
@@ -53,7 +53,7 @@ public class CoinPriceView implements ToolWindowFactory {
     @Override
     public void init(@NotNull ToolWindow toolWindow) {
         handler = new CoinPriceHandler(coin_table, coin_timestamp);
-        handler.load(parse(), AppSettingState.getInstance().getRank());
+        handler.load(parse(), AppSettingState.getInstance().getRank(), AppSettingState.getInstance().getCoinList());
     }
 
     @Override

@@ -2,8 +2,7 @@ package net.welights.jetbrainsplugin.cttm.constants;
 
 public class CoinConstants {
     public static final String PLUGIN_NAME = "To Be A Rich Man";
-    //非小号api暂时不支持筛选功能
-    public static final String COIN_INFO_URL = "https://api.coincap.io/v2/assets?limit=";
+    public static final String COIN_INFO_URL = "https://api.coincap.io/v2/assets";
     public static final String COIN_NAME = "Name";
     public static final String SYMBOL = "Code";
     public static final String COIN_LATEST_PRICE_USD = "USD";

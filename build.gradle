@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'net.welights.jetbrainsplugin'
-version '1.1.1'
+version '1.1.2'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -27,5 +27,6 @@ patchPluginXml {
     changeNotes """
     v1.0.0 support real time price 支持虚拟货币价格的实时查询.<br>
     v1.1.0 update query api 更新查询api.<br>
+    v1.1.2 Check your favorite toekn 指定查询你喜欢的token.<br>
     """
 }

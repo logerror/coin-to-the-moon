@@ -6,15 +6,17 @@
     <rowspec value="center:max(d;4px):noGrow"/>
     <rowspec value="top:3dlu:noGrow"/>
     <rowspec value="center:max(d;4px):noGrow"/>
-    <colspec value="fill:d:noGrow"/>
+    <rowspec value="top:4dlu:noGrow"/>
+    <rowspec value="center:max(d;4px):noGrow"/>
+    <colspec value="fill:275px:noGrow"/>
     <colspec value="left:4dlu:noGrow"/>
-    <colspec value="fill:d:grow"/>
+    <colspec value="left:440px:grow"/>
     <constraints>
-      <xy x="20" y="20" width="762" height="379"/>
+      <xy x="20" y="20" width="878" height="379"/>
     </constraints>
     <properties>
-      <background color="-788493"/>
-      <toolTipText value="Money Never Sleeps"/>
+      <background color="-8315913"/>
+      <toolTipText value="Coin to the moon"/>
     </properties>
     <border type="none" title="Money Never Sleeps" title-justification="2"/>
     <children>
@@ -24,7 +26,9 @@
           <forms/>
         </constraints>
         <properties>
-          <text value="请输入虚拟货币编码, 分号隔开:"/>
+          <labelFor value="e5127"/>
+          <text value="输入虚拟货币编码,逗号隔开: bitcoin,litecoin"/>
+          <toolTipText value="get coin list, 点击此处获取货币列表&#10;https://github.com/logerror/coin-to-the-moon/blob/master/COIN_LIST.md"/>
         </properties>
       </component>
       <component id="e5127" class="javax.swing.JTextField" binding="coin_input">
@@ -35,7 +39,7 @@
           <forms defaultalign-horz="false"/>
         </constraints>
         <properties>
-          <editable value="false"/>
+          <editable value="true"/>
           <text value=""/>
         </properties>
       </component>
@@ -99,6 +103,30 @@
         <properties>
           <text value=""/>
           <toolTipText value="填写一个数字"/>
+        </properties>
+      </component>
+      <component id="af95f" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <forms/>
+        </constraints>
+        <properties>
+          <labelFor value="e5127"/>
+          <text value="如何获取货币编码&gt;&gt;"/>
+          <toolTipText value=""/>
+        </properties>
+      </component>
+      <component id="a0804" class="javax.swing.JTextField">
+        <constraints>
+          <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="-1"/>
+          </grid>
+          <forms defaultalign-horz="false"/>
+        </constraints>
+        <properties>
+          <editable value="false"/>
+          <enabled value="true"/>
+          <text value="https://github.com/logerror/coin-to-the-moon/blob/master/COIN_LIST.md"/>
         </properties>
       </component>
     </children>

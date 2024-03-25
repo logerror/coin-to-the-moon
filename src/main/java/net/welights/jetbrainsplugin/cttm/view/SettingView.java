@@ -16,6 +16,9 @@ public class SettingView implements Configurable {
     private JLabel coin;
     private JTextField coin_input;
 
+    private JLabel coin_list_description;
+    private JTextField coin_list_description_input;
+
     private JLabel rank;
     private JTextField rank_input;
 

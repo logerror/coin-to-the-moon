@@ -41,7 +41,7 @@ public abstract class AbstractHandler {
         });
     }
 
-    public abstract void load(List<String> symbols, int rank);
+    public abstract void load(List<String> symbols, int rank, String coinList);
 
     public abstract Object[][] convert2Data();
 

@@ -8,6 +8,7 @@ import net.welights.jetbrainsplugin.cttm.dto.CryptoCurrency;
 import net.welights.jetbrainsplugin.cttm.util.HttpClientPool;
 import net.welights.jetbrainsplugin.cttm.util.PluginLogUtil;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -27,15 +28,16 @@ public class CoinPriceHandler extends AbstractCoinPriceHandler {
     }
 
     @Override
-    public void load(List<String> symbols, int rank) {
+    public void load(List<String> symbols, int rank, String coinList) {
         scheduledExecutorService.scheduleWithFixedDelay(() -> {
             if (symbols.isEmpty()) {
                 return;
             }
             for (int i = 0; i <= 3; i++) {
                 try {
-                    String entity = HttpClientPool.getInstance().get(CoinConstants.COIN_INFO_URL + rank);
-                    parse(symbols, entity);
+                    String favList = HttpClientPool.getInstance().get(CoinConstants.COIN_INFO_URL + "?ids=" + coinList);
+                    String topList = HttpClientPool.getInstance().get(CoinConstants.COIN_INFO_URL + "?limit=" + rank);
+                    parse(symbols, favList, topList);
                     updateView();
                     break;
                 } catch (Exception e) {
@@ -44,13 +46,14 @@ public class CoinPriceHandler extends AbstractCoinPriceHandler {
                 }
             }
 
-        }, 0L, 3, TimeUnit.SECONDS);
+        }, 0L, 2, TimeUnit.SECONDS);
         PluginLogUtil.info("updating " + jTable.getToolTipText() + " data");
     }
 
     //todo: 根据币种筛选
-    private void parse(List<String> symbols, String entity) {
-        new JsonParser().parse(entity).getAsJsonObject().getAsJsonArray("data").forEach(element -> {
+    private void parse(List<String> symbols, String favList, String topList) {
+        List<CryptoCurrency> resList = new ArrayList<>();
+        new JsonParser().parse(favList).getAsJsonObject().getAsJsonArray("data").forEach(element -> {
             CryptoCurrency coinInfo = new CryptoCurrency();
             JsonObject coinObj = element.getAsJsonObject();
             coinInfo.setSymbol(coinObj.get("symbol").getAsString());
@@ -60,7 +63,25 @@ public class CoinPriceHandler extends AbstractCoinPriceHandler {
 //            coinInfo.setChangeRatio1Hour(coinObj.get("percent_change_1h").getAsDouble());
             coinInfo.setChangeRatio24Hour(coinObj.get("changePercent24Hr").getAsDouble());
 //            coinInfo.setChangeRatio7Day(coinObj.get("percent_change_7d").getAsDouble());
-            updateCoinInfo(coinInfo);
+            resList.add(coinInfo);
+
         });
+
+        new JsonParser().parse(topList).getAsJsonObject().getAsJsonArray("data").forEach(element -> {
+            CryptoCurrency coinInfo = new CryptoCurrency();
+            JsonObject coinObj = element.getAsJsonObject();
+            coinInfo.setSymbol(coinObj.get("symbol").getAsString());
+            coinInfo.setName(coinObj.get("name").getAsString());
+            coinInfo.setLatestPriceUs(coinObj.get("priceUsd").getAsDouble());
+            coinInfo.setLatestPriceCny(0.01);
+//            coinInfo.setChangeRatio1Hour(coinObj.get("percent_change_1h").getAsDouble());
+            coinInfo.setChangeRatio24Hour(coinObj.get("changePercent24Hr").getAsDouble());
+//            coinInfo.setChangeRatio7Day(coinObj.get("percent_change_7d").getAsDouble());
+            resList.add(coinInfo);
+        });
+
+        for (CryptoCurrency coin : resList ){
+            updateCoinInfo(coin);
+        }
     }
 }

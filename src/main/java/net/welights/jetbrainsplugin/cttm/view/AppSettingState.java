@@ -14,13 +14,16 @@ public class AppSettingState implements PersistentStateComponent<AppSettingState
 
     //默认值
     public final static boolean IS_RED_RISE = true;
-    public final static String COIN_LIST = "BTC;ETH;BCH";
+    public final static String COIN_LIST = "bitcoin,ethereum,tether";
     public final static Integer RANK = 20;
+    private final static String coinListDescription = "";
 
     //自定义值
     private boolean isRedRise = true;
-    private String coinList = "BTC;ETH;BCH";
+    private String coinList = "bitcoin,ethereum,tether";
     private int rank = 20;
+
+
 
     public static AppSettingState getInstance() {
         return ServiceManager.getService(AppSettingState.class);
